@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "width": 1080,
+  "height": 1350,
+  "background": "#F3F0E8",
+  "elements": [
+    {"kind": "rect", "x": 64, "y": 68, "width": 80, "height": 8, "color": "#D85535"},
+    {"kind": "text", "x": 64, "y": 112, "width": 952, "height": 40, "text": "STUDIO / DEMO COLLECTION", "size": 26, "tracking": 3, "align": "left", "color": "#243E36"},
+    {"kind": "text", "x": 64, "y": 246, "width": 952, "height": 155, "text": "$headline", "font": "auto-bold", "size": 144, "min_size": 40, "align": "left", "color": "#243E36"},
+    {"kind": "text", "x": 68, "y": 429, "width": 920, "height": 60, "text": "$subtitle", "size": 36, "min_size": 24, "align": "left", "color": "#243E36"},
+    {"kind": "rect", "x": 64, "y": 576, "width": 952, "height": 422, "color": "#243E36"},
+    {"kind": "ellipse", "x": 350, "y": 616, "width": 342, "height": 342, "color": "#D8BB75"},
+    {"kind": "ellipse", "x": 433, "y": 699, "width": 176, "height": 176, "color": "#243E36"},
+    {"kind": "text", "x": 64, "y": 1100, "width": 952, "height": 66, "text": "$cta", "font": "auto-bold", "size": 42, "align": "left", "color": "#243E36"},
+    {"kind": "rect", "x": 64, "y": 1212, "width": 952, "height": 2, "color": "#243E36"},
+    {"kind": "text", "x": 64, "y": 1250, "width": 952, "height": 32, "text": "EXAMPLE CREATIVE     /     $edition", "size": 21, "tracking": 2, "align": "left", "color": "#243E36"}
+  ]
+}
