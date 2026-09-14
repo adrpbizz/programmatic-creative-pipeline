@@ -32,6 +32,7 @@ class PipelineTests(unittest.TestCase):
             self.assertLess(text["size"], 80)
             self.assertAlmostEqual(text["ink_box"][0] + text["ink_box"][2] / 2, 200)
             self.assertEqual(tw("A", font, 30), tw("A", font))
+            self.assertEqual(tw("   ", font, 3), 0)
             self.assertEqual(autofit("", "auto", 8, 50, min_size=8).size, 8)
             with self.assertRaises(ValueError):
                 autofit("cannot fit", "auto", 10, 1)

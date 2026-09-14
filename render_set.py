@@ -48,19 +48,30 @@ def F(fn, size):
     raise ValueError(f"Font not found: {fn}. Supply a local .ttf/.otf path in the template.")
 
 
+def ink_bounds(t, f):
+    """Measure visible pixels; font advance boxes can include side bearings."""
+    mask, (x, y) = f.getmask2(t, anchor="la")
+    b = mask.getbbox()
+    return (x + b[0], y + b[1], x + b[2], y + b[3]) if b else None
+
+
 def text_bounds(t, f, tr=0):
     """Measure the same glyph positions we draw, including bearings."""
     if not t:
         return (0, 0, 0, 0)
     if tr == 0:
-        return f.getbbox(t, anchor="la")
+        return ink_bounds(t, f) or (0, 0, 0, 0)
     # ponytail: tracking is for simple scripts; use zero for joined/complex text.
     pen = 0
     boxes = []
     for c in t:
-        left, top, right, bottom = f.getbbox(c, anchor="la")
-        boxes.append((pen + left, top, pen + right, bottom))
+        b = ink_bounds(c, f)
+        if b:
+            left, top, right, bottom = b
+            boxes.append((pen + left, top, pen + right, bottom))
         pen += f.getlength(c) + tr
+    if not boxes:
+        return (0, 0, 0, 0)
     return (min(b[0] for b in boxes), min(b[1] for b in boxes),
             max(b[2] for b in boxes), max(b[3] for b in boxes))
 
